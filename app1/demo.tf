@@ -1,8 +1,11 @@
-data "http" "example" {
-  url = "https://checkpoint-api.hashicorp.com/v1/check/terraform"
+provider "azurerm" {
+  # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
+  version = "=2.0.0"
+  features {}
+}
 
-  # Optional request headers
-  request_headers = {
-    Accept = "application/json"
-  }
+# Create a resource group
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
 }
