@@ -11,7 +11,7 @@ resource "azuredevops_git_repository" "App1" {
 }
 
 # Doesn't work yet with provider version 0.12
-# resource "azuredevops_branch_policy_min_reviewers" "branchPolicy" {
+# resource "azuredevops_branch_policy_min_reviewers" "branchPolicyReviewers" {
 #   project_id = data.azuredevops_project.projectA.id
 
 #   enabled  = true
@@ -34,3 +34,18 @@ resource "azuredevops_git_repository" "App1" {
 #     }
 #   }
 # }
+
+resource "azuredevops_build_definition" "build" {
+  project_id = azuredevops_project.projectA.id
+  agent_pool_name = "Hosted Ubuntu 1604"
+  name = "Automatic Build Definition"
+  path = "\\App1"
+
+  repository {
+    repo_name   = "App1"
+    repo_type   = "TfsGit"
+    repo_id     = azuredevops_git_repository.App1.id
+    branch_name = azuredevops_git_repository.App1.default_branch
+    yml_path    = "azure-pipelines.yml"
+  }
+}
