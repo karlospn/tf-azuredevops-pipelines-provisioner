@@ -40,20 +40,20 @@ resource "build_definition_resource" "test" {
 
 The attributes are the following ones:
 
-- path: The folder inside Azure DevOps pipelines where the buid is going to be saved.
-- project: The Azure DevOps team project.
-- application_project: Name of the app. It uses the name to create the name of the build.
-- build_template: You cannot add Tasks directly to the build, you can only reference an existing Task Group. The build_template parameter is the name of the Task Group. The build isn't going to reference the task group directly, instead it will take all the tasks that the task group contains an copy them into our build.
-- build_template_inputs: Inputs that the task group need to run.
-- queue_pool: The agent pool where our build is going to run.
-- repository: Repository name.
-- branch: Branch name.
-- tags: Tags to assign to our build
-- variable_groups: Name of the variable_group that you want to use. It needs to exist previously.
-- ci_triggers: Continous Integration Triggers.
-- schedule_triggers: Scheduled Triggers.
-- variables: Variables that the build might need.
-- 
+- **path**: The folder inside Azure DevOps pipelines where the buid is going to be saved.
+- **project**: The Azure DevOps team project.
+- **application_project**: Name of the app. It uses the name to create the name of the build.
+- **build_template**: You cannot add Tasks directly to the build, you can only reference an existing Task Group. The build_template parameter is the name of the Task Group. The build isn't going to reference the task group directly, instead it will take all the tasks that the task group contains an copy them into our build.
+- **build_template_inputs**: Inputs that the task group need to run.
+- **queue_pool**: The agent pool where our build is going to run.
+- **repository**: Repository name.
+- **branch**: Branch name.
+- **tags**: Tags to assign to our build
+- **variable_groups**: Name of the variable_group that you want to use. It needs to exist previously.
+- **ci_triggers**: Continous Integration Triggers.
+- **schedule_triggers**: Scheduled Triggers.
+- **variables**: Variables that the build might need.
+
 
 
 
